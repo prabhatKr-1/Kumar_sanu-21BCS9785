@@ -1,7 +1,7 @@
 import React from "react";
 
 function Weather() {
-  return <div>weather</div>;
+  return <div>Weather</div>;
 }
 
 export default Weather;

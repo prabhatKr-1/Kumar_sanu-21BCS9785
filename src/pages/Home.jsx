@@ -1,12 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
 
 function Home(props) {
-  return (
-    <div>Home</div>
-  )
+  return <div>Home</div>;
 }
 
-Home.propTypes = {}
+Home.propTypes = {};
 
-export default Home
+export default Home;
