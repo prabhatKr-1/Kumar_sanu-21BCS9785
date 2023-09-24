@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./App.css";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import LogIn from "./pages/LogIn";
 import Register from "./pages/Register";
 import Weather from "./pages/Weather";
+import "./styles/header.css";
 
 function App() {
   return (
     <Router>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LogIn />} />

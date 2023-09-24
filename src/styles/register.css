@@ -1,0 +1,41 @@
+.sign-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  height: 65vh;
+  margin: 6.45% auto;
+  border: 2px solid rgb(209, 201, 201);
+  /* color: aliceblue; */
+}
+
+.register-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  height: 100vh;
+  flex-direction: column;
+}
+.register-form input {
+  margin: 0.4rem;
+  padding: 0.8rem;
+  width: 20vw;
+  transition: border 0.5s ease-in-out;
+}
+input[type="submit"] {
+  background-color: rgba(51, 178, 73, 0.8);
+  width: 10vw;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  background-color: rgba(51, 178, 73, 1);
+  cursor: pointer;
+  color: white;
+  transition: 0.5s;
+}
+
+a {
+  text-decoration: none;
+}

@@ -1,0 +1,25 @@
+.sign-in {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    height: 65vh;
+    margin: 6.45% auto;
+    border: 2px solid rgb(209, 201, 201);
+    /* color: aliceblue; */
+  }
+  
+  .login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 100vh;
+    flex-direction: column;
+  }
+  .login-form input {
+    margin: 1rem;
+    padding: 0.8rem;
+    width: 20vw;
+    transition: border 0.5s ease-in-out;
+  }

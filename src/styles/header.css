@@ -1,0 +1,22 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    border-bottom: 2px solid gray;
+  }
+  
+  nav p {
+    padding: 15px;
+    font-size: xx-large;
+    color: black;
+  }
+  
+  form input{
+    width:30vw;
+  }
+
+  input::placeholder{
+    text-align: center;
+    padding: 20px;
+  }
