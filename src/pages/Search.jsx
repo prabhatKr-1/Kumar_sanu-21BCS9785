@@ -13,7 +13,7 @@ function Search() {
       try {
         const newsData = await getNewsBySearch(query, {
           location: "in",
-          sortBy: "publishedAt",
+          sortBy: "popularity",
         });
         const limitedArticles = newsData.slice(0, 30);
         setNews(limitedArticles);
@@ -29,7 +29,15 @@ function Search() {
     <>
       <div className="news-container">
         {news.map((newsItem) => (
-          <NewsCard key={newsItem.author + newsItem.source.name + newsItem.publishedAt + newsItem.title} news={newsItem} />
+          <NewsCard
+            key={
+              newsItem.author +
+              newsItem.source.name +
+              newsItem.publishedAt +
+              newsItem.title
+            }
+            news={newsItem}
+          />
         ))}
       </div>
     </>

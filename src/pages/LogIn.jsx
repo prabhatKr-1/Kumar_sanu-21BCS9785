@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/login.css";
 import { AuthContext } from "../main";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
 import toast from "react-hot-toast";
 import { db } from "../firebase";
 
@@ -30,6 +29,7 @@ function LogIn() {
 
         const uid = user.uid;
         setId(uid);
+        localStorage.setItem("isAuthenticated", "true");
 
         navigate("/");
       }

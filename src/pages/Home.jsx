@@ -6,7 +6,7 @@ import { AuthContext } from "../main";
 import { doc, getDoc } from "firebase/firestore";
 
 function Home() {
-  const { id } = useContext(AuthContext);
+  const { id,isAuth } = useContext(AuthContext);
   const [news, setNews] = useState([]);
   const [userLocation, setUserLocation] = useState("in");
 
@@ -31,14 +31,14 @@ function Home() {
     if (id) {
       getUserLocation(id);
     }
-  }, [id]);
+  }, []);
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        console.log(userLocation);
+        // console.log(userLocation);
         const newsData = await getNewsByLocation(userLocation, {
-          sortBy: "popularity",
+          sortBy: "publishedAt",
         });
         const limitedArticles = newsData.slice(0, 30);
         setNews(limitedArticles);
@@ -48,7 +48,7 @@ function Home() {
     };
 
     fetchNews();
-  }, [userLocation]);
+  }, [userLocation,isAuth]);
 
   return (
     <>
