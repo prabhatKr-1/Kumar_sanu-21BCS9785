@@ -5,6 +5,11 @@ function Header() {
   return (
     <nav>
       <h2>News Room</h2>
+      <div className="weather-info">
+        Clear 27°C
+      <br />Patna
+        {/* <img src="https://img.icons8.com/?size=48&id=85353&format=png" alt="Location logo" />Patna */}
+      </div>
       <form action="">
         <input type="text" placeholder="Search Your City/State"  /> 
       </form>
