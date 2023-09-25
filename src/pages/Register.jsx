@@ -7,7 +7,7 @@ function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [verifyPassword, setVerifyPassword] = useState("");
+  const [location, setLocation] = useState("");
 
   return (
     <div className="sign-up">
@@ -39,11 +39,11 @@ function Register() {
         />
         <input
           type="password"
-          name="verifyPassword"
-          value={verifyPassword}
-          placeholder="Verify Password"
+          name="location"
+          value={location}
+          placeholder="Enter Your Location"
           required
-          onChange={(e) => setVerifyPassword(e.target.value)}
+          onChange={(e) => setLocation(e.target.value)}
         />
         <input type="submit" value="Sign Up" />
 
