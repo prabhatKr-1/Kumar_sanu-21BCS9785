@@ -1,29 +1,38 @@
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px;
-    border-bottom: 2px solid gray;
-  }
-  
-  nav p {
-    padding: 15px;
-    font-size: xx-large;
-    color: black;
-  }
-  
-  form input{
-    width:30vw;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  border-bottom: 2px solid gray;
+}
 
-  input::placeholder{
-    text-align: center;
-    padding: 20px;
-  }
+nav p {
+  padding: 15px;
+  font-size: xx-large;
+  color: black;
+}
 
-  .news-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+form input {
+  width: 30vw;
+}
+
+input::placeholder {
+  text-align: center;
+  padding: 20px;
+}
+
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    width: 40%;
+    padding-left: 10px;
   }
-  
+  .log {
+    font-size: 15px;
+  }
+}

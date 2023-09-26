@@ -6,6 +6,7 @@ export const AuthContext = createContext(null);
 
 const AppWrapper = () => {
   const initialAuthState = localStorage.getItem("isAuthenticated") === "true";
+  const [weatherData, setWeatherData] = useState(null);
   const [isAuth, setIsAuth] = useState(initialAuthState);
   const [id, setId] = useState("");
   useEffect(() => {
@@ -19,6 +20,8 @@ const AppWrapper = () => {
         setIsAuth,
         id,
         setId,
+        weatherData,
+        setWeatherData,
       }}
     >
       <App />

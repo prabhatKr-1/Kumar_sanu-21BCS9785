@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 function Header() {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
-  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const { isAuth, setIsAuth,id,weatherData } = useContext(AuthContext);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -41,25 +41,29 @@ function Header() {
       <h2 onClick={homeClickHandler} style={{ cursor: "pointer" }}>
         NewsWave
       </h2>
-      {isAuth && (
-        <div className="weather-info">
-          Clear 27°C
+      
+      {/* {isAuth && (
+        <h3 className="weather-info">
+          Clear 30°C
           <br />
-          Patna
-        </div>
-      )}
+          Chandigarh
+        </h3>
+      )} */}
+      
       {isAuth && (
-        <form action="" onSubmit={submitHandler}>
+        <form  className="search" action="" onSubmit={submitHandler}>
           <input
             type="text"
-            placeholder="Search Your City/State"
+            className="search-i"
+            placeholder="Search"
             value={search}
             onChange={handleSearchChange}
           />
+       
         </form>
       )}
       {isAuth ? (
-        <div onClick={handleLogout} style={{ cursor: "pointer" }}>
+        <div  className="log" onClick={handleLogout} style={{ cursor: "pointer" }}>
           <h2>Log Out</h2>
         </div>
       ) : (

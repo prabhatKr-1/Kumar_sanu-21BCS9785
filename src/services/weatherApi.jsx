@@ -1,13 +1,13 @@
-import React from "react";
-import { useState, useEffect, useContext } from "react";
-import { AuthContext } from "../main";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { doc, getDoc } from "firebase/firestore";
+import { AuthContext } from "../main";
 import { db } from "../firebase";
 
-function Weather() {
+const WeatherApi = () => {
   const { setWeatherData, id } = useContext(AuthContext);
   const [userLocation, setUserLocation] = useState("in");
+
   useEffect(() => {
     const getUserLocation = async (uid) => {
       try {
@@ -52,10 +52,12 @@ function Weather() {
       }
     };
 
-    fetchWeatherData();
-  }, []);
+    if (userLocation) {
+      fetchWeatherData();
+    }
+  }, [userLocation, setWeatherData]);
 
-  return <div>Weather</div>;
-}
+  return null; // This component doesn't render anything, it handles data fetching.
+};
 
-export default Weather;
+export default WeatherApi;

@@ -4,11 +4,13 @@ import { getNewsByLocation } from "../services/newsApi";
 import { db } from "../firebase";
 import { AuthContext } from "../main";
 import { doc, getDoc } from "firebase/firestore";
+import "../styles/loader.css";
 
 function Home() {
-  const { id,isAuth } = useContext(AuthContext);
+  const { id, isAuth } = useContext(AuthContext);
   const [news, setNews] = useState([]);
   const [userLocation, setUserLocation] = useState("in");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getUserLocation = async (uid) => {
@@ -36,27 +38,42 @@ function Home() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        // console.log(userLocation);
         const newsData = await getNewsByLocation(userLocation, {
           sortBy: "publishedAt",
         });
         const limitedArticles = newsData.slice(0, 30);
         setNews(limitedArticles);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching news:", error);
+        setIsLoading(false);
       }
     };
 
     fetchNews();
-  }, [userLocation,isAuth]);
+  }, [userLocation, isAuth]);
 
   return (
     <>
-      <div className="news-container">
-        {news.map((newsItem) => (
-          <NewsCard key={newsItem.title} news={newsItem} />
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="loader-container">
+          <div className="loader"></div>
+        </div>
+      ) : (
+        <div className="news-container">
+          {news.map((newsItem) => (
+            <NewsCard
+              key={
+                newsItem.author +
+                newsItem.source.name +
+                newsItem.publishedAt +
+                newsItem.title
+              }
+              news={newsItem}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 }
